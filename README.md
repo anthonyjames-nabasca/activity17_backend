@@ -1,63 +1,61 @@
+
+---
+
+
+```md
 # 📌 Account Management API (ExpressJS + MySQL)
 
-This project is a **RESTful API built using ExpressJS** that handles account management functionalities such as:
-
-* User Registration
-* User Login
-* User Logout
-* JWT Authentication
-* Email Sending (SMTP)
-* MySQL Database Integration
-
-It is designed for academic purposes and can be tested using **Postman**.
+This project is a **RESTful API built using ExpressJS** that handles user account management including authentication and email functionality.
 
 ---
 
 ## 🚀 Features
 
-* 🔐 Secure authentication using **JWT (JSON Web Token)**
-* 🗄️ MySQL database integration
-* 📧 Email sending using SMTP (Gmail)
-* 🔑 Environment-based configuration using `.env`
-* ⚡ RESTful API endpoints
+- User Registration
+- User Login (JWT Authentication)
+- User Logout
+- Email Sending via SMTP (Gmail)
+- MySQL Database Integration
+- File Upload Support (uploads folder)
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Backend:** Node.js + ExpressJS
-* **Database:** MySQL (XAMPP / phpMyAdmin)
-* **Authentication:** JWT
-* **Email Service:** SMTP (Gmail)
-* **Testing Tool:** Postman
+- **Backend:** Node.js + ExpressJS
+- **Database:** MySQL (XAMPP / phpMyAdmin)
+- **Authentication:** JSON Web Token (JWT)
+- **Email Service:** Nodemailer (SMTP - Gmail)
+- **Testing Tool:** Postman
 
 ---
 
 ## 📁 Project Structure
 
 ```
-project-folder/
+
+activity17_backend/
 │
-├── node_modules/
-├── routes/
-├── controllers/
-├── config/
-├── .env
+├── uploads/               # Uploaded files storage
+├── account18_db.sql      # Database SQL file
+├── index.js              # Main server file
+├── mailer.js             # Email configuration
 ├── package.json
-├── server.js / index.js
+├── package-lock.json
 └── README.md
-```
+
+````
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 1. Clone the Repository
+### 1. Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
-```
+git clone https://github.com/anthonyjames-nabasca/activity17_backend.git
+cd activity17_backend
+````
 
 ---
 
@@ -78,13 +76,17 @@ npm install
 CREATE DATABASE account17_db;
 ```
 
-3. Import your SQL file (if provided)
+3. Import the provided SQL file:
+
+```
+account18_db.sql
+```
 
 ---
 
 ### 4. Configure Environment Variables
 
-Create a `.env` file in the root folder and paste:
+Create a `.env` file in the root directory:
 
 ```
 PORT=5000
@@ -108,31 +110,31 @@ SMTP_PASS=httf tjuh rqzx ugak
 
 ---
 
-⚠️ **IMPORTANT NOTE (for Instructor):**
+⚠️ **IMPORTANT (For Instructor):**
 
-* This `.env` is configured for **local testing only**
-* If email sending fails, make sure:
+* This project is configured for **local testing only**
+* If email does not send:
 
-  * Gmail **App Password** is valid
-  * Less secure apps / SMTP is allowed
+  * Ensure Gmail App Password is correct
+  * Ensure SMTP access is enabled
 
 ---
 
 ### 5. Run the Server
 
 ```bash
-npm start
+node index.js
 ```
 
-or (if using nodemon):
+or if using nodemon:
 
 ```bash
-npm run dev
+npx nodemon index.js
 ```
 
 ---
 
-### ✅ Server will run at:
+### ✅ Server URL
 
 ```
 http://localhost:5000
@@ -140,9 +142,9 @@ http://localhost:5000
 
 ---
 
-## 📮 API Endpoints (Postman Testing)
+## 📮 API Endpoints (Postman)
 
-### 🔹 1. Register User
+### 🔹 Register
 
 **POST**
 
@@ -163,7 +165,7 @@ http://localhost:5000/api/register
 
 ---
 
-### 🔹 2. Login
+### 🔹 Login
 
 **POST**
 
@@ -182,7 +184,7 @@ http://localhost:5000/api/login
 
 ---
 
-### 🔹 3. Logout
+### 🔹 Logout
 
 **POST**
 
@@ -192,7 +194,7 @@ http://localhost:5000/api/logout
 
 ---
 
-### 🔹 4. Protected Route (Example)
+### 🔹 Example Protected Route
 
 **GET**
 
@@ -200,7 +202,7 @@ http://localhost:5000/api/logout
 http://localhost:5000/api/profile
 ```
 
-👉 Requires Authorization Header:
+**Headers:**
 
 ```
 Authorization: Bearer YOUR_TOKEN_HERE
@@ -212,24 +214,22 @@ Authorization: Bearer YOUR_TOKEN_HERE
 
 1. User registers
 2. User logs in
-3. Server returns **JWT Token**
+3. Server returns JWT Token
 4. Token is used for protected routes
 
 ---
 
-## 📧 Email Functionality
+## 📧 Email Configuration
 
-* Uses **SMTP (Gmail)**
-* Sends emails such as:
-
-  * Verification
-  * Notifications (if implemented)
+* Uses **Gmail SMTP**
+* Configured inside `mailer.js`
+* Sends emails (verification / notifications)
 
 ---
 
-## 🧪 Testing Guide (Postman)
+## 🧪 Testing Instructions
 
-1. Open Postman
+1. Open **Postman**
 2. Select request type (POST/GET)
 3. Enter API URL
 4. Go to **Body → raw → JSON**
@@ -238,23 +238,24 @@ Authorization: Bearer YOUR_TOKEN_HERE
 
 ---
 
-## 📌 Notes for Instructor
+## 📦 Submission Notes
 
-* `.env` file is included for easy setup
-* Database should be created manually before running
-* API tested using Postman screenshots (included separately)
+* `.env` file is included for testing
+* SQL file is provided (`account18_db.sql`)
+* API tested using Postman screenshots (submitted separately)
 
 ---
 
 ## 📜 License
 
-This project is for **educational purposes only**.
+For **educational purposes only**
 
 ---
 
 ## 👨‍💻 Author
 
-**Anthony James B. Nabasca**
-MSIT Student – Specialization Course
+**Anthony James Nabasca**
+MSIT Student
 
----
+```
+```
